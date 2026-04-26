@@ -1,7 +1,10 @@
-# 🚀 NVIDIA Nemotron 3 Super Build Contest
+# 🚀 Nemotron 3 Super Build Contest
 
-> **A 4-week build contest from Collabnix x Docker Bangalore × NVIDIA. Ship something real with Nemotron 3 Super.**
+> **A 4-week build contest from Collabnix × NVIDIA. Ship something real with Nemotron 3 Super.**
 
+🌐 **Portal:** [contest.collabnix.com](https://contest.collabnix.com)
+💬 **Community:** [Collabnix Slack — #nemotron-contest](https://collabnix.com)
+⭐ **Reference projects:** [awesome-nvidia-nemotron](https://github.com/collabnix/awesome-nvidia-nemotron)
 
 ---
 
@@ -45,9 +48,7 @@ Each submission scored on four dimensions, weighted equally:
 ## Prizes
 
 🥇 **Grand Prize** — Cash + NVIDIA hardware + featured on NVIDIA Developer blog + speaker slot at next Collabnix meetup
-
 🥈 **Runner-up** — Cash + NVIDIA swag + Collabnix feature
-
 🏆 **Track Winners** — Recognition per track + swag + permanent feature in Awesome-Nemotron
 
 ## Submission rules
@@ -63,7 +64,7 @@ Read the full FAQ on the [contest portal](https://contest.collabnix.com#faq).
 
 ## Get help
 
-- **Stuck on setup?** Slack #nvidia-nemotron-contest channel — fastest replies
+- **Stuck on setup?** Slack #nemotron-contest channel — fastest replies
 - **Question about rules?** [Open a question issue](../../issues/new?template=question.yml)
 - **Office hours:** Every Friday 6 PM IST during the contest window — link in Slack
 
