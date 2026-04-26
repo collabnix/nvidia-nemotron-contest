@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Collabnix Slack — Real-time help
+    url: https://collabnix.com
+    about: Get fast help from 17,000+ builders in #nemotron-contest. Best for setup issues and code questions.
+  - name: 📖 Contest Portal & Resources
+    url: https://contest.collabnix.com
+    about: Tracks, timeline, prizes, judges, FAQ, and resource links.
+  - name: 🌟 Awesome Nemotron
+    url: https://github.com/collabnix/awesome-nvidia-nemotron
+    about: Curated examples and reference projects to help you get started.

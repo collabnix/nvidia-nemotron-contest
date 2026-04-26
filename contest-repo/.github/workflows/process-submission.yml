@@ -1,0 +1,112 @@
+name: Process Submission
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  process:
+    if: contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Parse and validate submission
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+
+            // Extract track from body
+            const trackMatch = body.match(/### Submission Track\s*\n\s*(Track \d+[^\n]*)/);
+            const track = trackMatch ? trackMatch[1].trim() : null;
+
+            // Extract repo URL
+            const repoMatch = body.match(/### GitHub Repository URL\s*\n\s*(https?:\/\/[^\s]+)/);
+            const repoUrl = repoMatch ? repoMatch[1].trim() : null;
+
+            // Build label list
+            const labels = [];
+            if (track) {
+              const trackNum = track.match(/Track (\d)/);
+              if (trackNum) labels.push(`track-${trackNum[1]}`);
+            }
+
+            // Validate repo URL is a GitHub URL
+            const isValidRepo = repoUrl && /^https:\/\/github\.com\/[\w-]+\/[\w.-]+/.test(repoUrl);
+            if (!isValidRepo) {
+              labels.push('needs-fix');
+            }
+
+            // Add labels
+            if (labels.length) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labels
+              });
+            }
+
+            // Only welcome on first open, not on edits
+            if (context.payload.action !== 'opened') return;
+
+            // Welcome comment
+            const welcomeBody = isValidRepo
+              ? `## 🎉 Submission received!
+
+Thanks for shipping, @${issue.user.login}. Your project is now part of the public submissions wall.
+
+**What happens next:**
+- Your submission appears live at [contest.collabnix.com](https://contest.collabnix.com#wall) within minutes
+- Judges review during the judging window after the deadline
+- Community can react with 👍 / 🚀 / ❤️ — these don't decide judging but tell us what's resonating
+
+**While you wait:**
+- Star ⭐ this repo to follow the contest
+- Drop into the Collabnix Slack #nemotron-contest channel
+- Check out other submissions on the wall — react to what you like
+
+If you need to update something, just edit this issue. Edits are picked up automatically.
+
+_Submitted: ${new Date().toUTCString()}_`
+              : `## ⚠️ Submission needs a fix
+
+Thanks for submitting, @${issue.user.login}. We've labeled this \`needs-fix\` because:
+
+- The GitHub repository URL appears to be missing or malformed.
+
+Please edit this issue to provide a valid public GitHub repo URL (format: \`https://github.com/owner/repo\`). Once fixed, the \`needs-fix\` label will be removed and your submission will go live on the wall.
+
+If you think this is in error, comment below and we'll take a look.`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: welcomeBody
+            });
+
+      - name: Remove needs-fix on valid edit
+        if: github.event.action == 'edited'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            const repoMatch = body.match(/### GitHub Repository URL\s*\n\s*(https?:\/\/[^\s]+)/);
+            const repoUrl = repoMatch ? repoMatch[1].trim() : null;
+            const isValidRepo = repoUrl && /^https:\/\/github\.com\/[\w-]+\/[\w.-]+/.test(repoUrl);
+
+            if (isValidRepo) {
+              try {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.payload.issue.number,
+                  name: 'needs-fix'
+                });
+              } catch (e) {
+                // label wasn't there, that's fine
+              }
+            }

@@ -1,0 +1,195 @@
+name: 🚀 Contest Submission
+description: Submit your project for the Nemotron 3 Super Build Contest
+title: "[SUBMISSION] <Your project name>"
+labels: ["submission", "needs-review"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Welcome, builder.
+
+        Thanks for shipping something with Nemotron 3 Super. Fill this out carefully — judges read every field, and your submission becomes part of the public submissions wall the moment you hit submit.
+
+        **Before you submit, make sure:**
+        - ✅ Your project is on a public GitHub repo
+        - ✅ The README explains what it does and how to run it
+        - ✅ You have a short demo (video, GIF, or live link)
+        - ✅ The project uses Nemotron 3 Super in a meaningful way
+        - ✅ Code is open source (MIT, Apache 2.0, or similar)
+
+        ---
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project Name
+      description: Short, memorable. This is what people will see on the wall.
+      placeholder: e.g. AgentMesh, LongDoc, TamilTune
+    validations:
+      required: true
+
+  - type: input
+    id: tagline
+    attributes:
+      label: One-line Tagline
+      description: Describe your project in a single sentence (max 140 chars).
+      placeholder: e.g. Multi-agent orchestrator that routes tools across web, code, and database with MCP.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: track
+    attributes:
+      label: Submission Track
+      description: Pick one. Your project will be judged within this track.
+      options:
+        - "Track 1 — Agentic Workflows"
+        - "Track 2 — RAG & Long Context"
+        - "Track 3 — Fine-tuning & Distillation"
+        - "Track 4 — Deployment & Infra"
+        - "Track 5 — Wild Card"
+    validations:
+      required: true
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: GitHub Repository URL
+      description: Must be a public repo. We will not accept private repos or gists.
+      placeholder: https://github.com/your-username/your-project
+    validations:
+      required: true
+
+  - type: input
+    id: demo_url
+    attributes:
+      label: Demo Link
+      description: Video (YouTube, Loom), GIF in your README, or live deployment URL. At least one is required.
+      placeholder: https://youtube.com/watch?v=... or https://your-demo.vercel.app
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What did you build?
+      description: |
+        Walk us through it in 3–5 paragraphs. What problem does it solve? How does Nemotron 3 Super fit in? What's the technical approach? What worked, what didn't? Be specific.
+      placeholder: |
+        We built X to solve Y...
+
+        Architecture: ...
+
+        Where Nemotron 3 Super fits in: ...
+
+        Trade-offs we made: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: nemotron_usage
+    attributes:
+      label: How are you using Nemotron 3 Super?
+      description: |
+        Be specific. Which model variant? What kind of inference (TensorRT, vLLM, Triton, HuggingFace, local)? Are you fine-tuning? Using long context? Why did you pick Nemotron over alternatives?
+      placeholder: |
+        - Variant: Nemotron 3 Super (Hybrid Mamba-Transformer MoE)
+        - Inference: vLLM with bf16 on a single A100
+        - Why Nemotron: long context window let us avoid chunking entirely
+    validations:
+      required: true
+
+  - type: textarea
+    id: setup_instructions
+    attributes:
+      label: How to run it (quick steps)
+      description: Copy-paste the key commands. If it's `git clone && docker compose up`, say so.
+      placeholder: |
+        ```bash
+        git clone https://github.com/you/your-project
+        cd your-project
+        docker compose up
+        ```
+      render: markdown
+    validations:
+      required: true
+
+  - type: input
+    id: team_size
+    attributes:
+      label: Team size
+      description: 1 to 4 people. Solo is fine.
+      placeholder: e.g. 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: team_members
+    attributes:
+      label: Team members
+      description: GitHub handles + roles. One per line. Solo? Just put yourself.
+      placeholder: |
+        @alice — backend, agent orchestration
+        @bob — frontend, demo
+    validations:
+      required: true
+
+  - type: input
+    id: contact_email
+    attributes:
+      label: Contact email
+      description: We'll only use this to reach you about prizes / judging questions. Not made public.
+      placeholder: you@example.com
+    validations:
+      required: true
+
+  - type: dropdown
+    id: license
+    attributes:
+      label: Project license
+      description: Must be open source.
+      options:
+        - "MIT"
+        - "Apache 2.0"
+        - "BSD 3-Clause"
+        - "GPL v3"
+        - "Other (specify in description)"
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Location (city, country)
+      description: For the public submissions wall. Helps us see how global the contest is.
+      placeholder: e.g. Bengaluru, India
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Anything else judges should know?
+      description: Optional. Acknowledgements, known limitations, what you'd build next, easter eggs.
+      placeholder: ""
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: Submission checklist
+      description: Tick all that apply. All are required.
+      options:
+        - label: My project is publicly available on GitHub with an open-source license.
+          required: true
+        - label: My project was substantially built or extended during the contest period (Week 0 onwards).
+          required: true
+        - label: I confirm Nemotron 3 Super is used meaningfully in my project, not as a token mention.
+          required: true
+        - label: I understand my submission will be public and may be featured by Collabnix and NVIDIA (with credit).
+          required: true
+        - label: I retain ownership of my project. Collabnix and NVIDIA do not claim IP.
+          required: true
