@@ -43,7 +43,9 @@ Each submission scored on four dimensions, weighted equally:
 ## Prizes
 
 🥇 **Grand Prize** — Cash + NVIDIA hardware + featured on NVIDIA Developer blog + speaker slot at next Collabnix meetup
+
 🥈 **Runner-up** — Cash + NVIDIA swag + Collabnix feature
+
 🏆 **Track Winners** — Recognition per track + swag + permanent feature in Awesome-Nemotron
 
 ## Submission rules
