@@ -38,6 +38,7 @@ Each submission scored on four dimensions, weighted equally:
 - **Utkarsh Uppal** — NVIDIA, Solution Architect
 - **Savitha Pareek** — NVIDIA, Senior HPC & AI Architect
 - **Ajeet Singh Raina** — Docker, Founder of Collabnix
+- **Raveendiran RR** - Docker
 
 ## Prizes
 
