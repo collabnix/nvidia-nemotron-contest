@@ -2,12 +2,6 @@
 
 > **A 4-week build contest from Collabnix × NVIDIA. Ship something real with Nemotron 3 Super.**
 
-🌐 **Portal:** [contest.collabnix.com](https://contest.collabnix.com)
-💬 **Community:** [Collabnix Slack — #nemotron-contest](https://collabnix.com)
-⭐ **Reference projects:** [awesome-nvidia-nemotron](https://github.com/collabnix/awesome-nvidia-nemotron)
-
----
-
 ## How it works
 
 1. **Build something** with NVIDIA Nemotron 3 Super — agentic workflow, RAG app, fine-tune, deployment recipe, anything creative
