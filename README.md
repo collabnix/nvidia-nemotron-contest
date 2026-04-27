@@ -4,8 +4,10 @@
 > A community contest from **Docker Bangalore × Collabnix × NVIDIA**.
 
 📅 **Deadline:** 25 May 2026
+
 🏆 **Prizes:** Amazon vouchers + NVIDIA swag for top 3 · NVIDIA swag for 2 runners-up
-👥 **Owner:** Docker Bangalore Organizers
+
+👥 **Owner:** NVIDIA and Collabnix Meetup Community Organizers
 
 ---
 
@@ -134,6 +136,4 @@ In addition, judges weigh **innovation, timelines, and presentation** (lines of 
 - **Community:** [Collabnix Slack](https://collabnix.com)
 - **Question?** [Open a question issue](../../issues/new?template=question.yml)
 
----
 
-*Built with ☕ in Bengaluru by [Collabnix](https://collabnix.com) and [Docker Bangalore](https://www.meetup.com/docker-bangalore/).*
