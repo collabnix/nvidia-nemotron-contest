@@ -1,101 +1,139 @@
-# 🚀 Nemotron 3 Super Build Contest
+# 🚀 NVIDIA Nemotron 3 Super Build Contest
 
-> **A 4-week build contest from Collabnix × NVIDIA. Ship something real with Nemotron 3 Super.**
+> **Build something for your community with NVIDIA Nemotron 3 Super.**
+> A community contest from **Docker Bangalore × Collabnix × NVIDIA**.
+
+📅 **Deadline:** 25 May 2026
+🏆 **Prizes:** Amazon vouchers + NVIDIA swag for top 3 · NVIDIA swag for 2 runners-up
+👥 **Owner:** Docker Bangalore Organizers
+
+---
 
 ## How it works
 
-1. **Build something** with NVIDIA Nemotron 3 Super — agentic workflow, RAG app, fine-tune, deployment recipe, anything creative
-2. **Push it to a public GitHub repo** with a clear README and a demo
-3. **Submit here** by [opening a Submission issue](../../issues/new?template=submission.yml) — your project goes live on the [public wall](https://contest.collabnix.com#wall) instantly
-4. **Wait for judging** at the end of the contest window. Winners announced shortly after.
+1. **Pick one of the 4 tracks** below
+2. **Build a project** with NVIDIA Nemotron 3 Super and host it on a public GitHub repo (with an architecture diagram in the README)
+3. **Record a YouTube demo video**
+4. **Write a blog post** about your project and share it on social media with `#NVIDIA` `#Nemotron` and a callout to the Bengaluru meetup
+5. **Submit here** by [opening a Submission issue](../../issues/new?template=submission.yml) — your project goes live on the public submissions wall instantly
+6. **Judging** happens after the 25 May 2026 deadline. Winners announced shortly after.
 
-That's it. No registration form, no waitlist, no gated forum.
+---
 
-## Tracks
+## The 4 Tracks
 
-| # | Track | What fits here |
-|---|---|---|
-| 1 | Agentic Workflows | Multi-agent systems, tool-using agents, MCP integrations |
-| 2 | RAG & Long Context | Retrieval, document/codebase chat, long-window applications |
-| 3 | Fine-tuning & Distillation | Domain/language adaptation, LoRA, SFT, evals |
-| 4 | Deployment & Infra | TensorRT, vLLM, Triton, Docker, Kubernetes recipes |
-| 5 | Wild Card | Creative apps, games, voice, vision, education — surprise us |
+### Track 1 — Community Benefits Navigator
 
-Pick **one** track per submission.
+**What to build:** An assistant that helps people understand and apply for public or nonprofit services — scholarships, legal aid, food support, health schemes, disability benefits, local grants, etc. A good version ingests eligibility rules, FAQs, policy PDFs, and application checklists, then guides the user step-by-step in plain language.
 
-## Judging criteria
+**Why this model fits:** long policy docs + planning + tool use for form filling/checklists.
 
-Each submission scored on four dimensions, weighted equally:
+**Why it helps the community:** reduces the gap between available support and people who actually manage to access it.
 
-- **Technical execution** — does it work, is the code good, are the trade-offs sound
-- **Originality** — is this a novel idea or a fresh angle on an existing one
-- **Real-world utility** — could someone actually use this
-- **Documentation quality** — README, demo, write-up — can a stranger pick it up
+**Rubric:** Eligibility accuracy · Groundedness · Form-completion usefulness · Safety · Language accessibility · Escalation behavior.
+
+**Success metrics:** Top-1 eligibility recommendation accuracy · Citation coverage per answer · Hallucination rate · Completion rate of application checklists · User-rated clarity / trust score.
+
+---
+
+### Track 2 — Open-Source Maintainer Copilot for Small Community Projects
+
+**What to build:** A GitHub helper for nonprofits, student groups, civic-tech teams, and small open-source projects. It can read issues, PRs, docs, and code, then help with triage, label suggestions, bug reproduction steps, release-note drafting, and newcomer onboarding.
+
+**Why this model fits:** built for agentic coding workflows and long-horizon reasoning across many steps.
+
+**Why it helps the community:** many useful public-interest repos die because maintainers burn out.
+
+**Rubric:** Issue triage quality · Reproduction usefulness · Codebase grounding · PR review helpfulness · Newcomer friendliness · Automation reliability.
+
+**Success metrics:** % correct labels on incoming issues · % accepted maintainer suggestions · Time saved per issue/PR · First-time contributor success rate · False-positive automation rate.
+
+---
+
+### Track 3 — Local Governance / Public Meeting Explainer
+
+**What to build:** A system that ingests city council minutes, school board agendas, resident association notes, budget documents, and policy updates, then produces plain-language explanations: "What changed?", "Who is affected?", "What action can residents take?"
+
+**Why this model fits:** long-context synthesis, planning, and multi-document reasoning.
+
+**Why it helps the community:** local decisions are often opaque, even when technically public.
+
+**Rubric:** Factual faithfulness · Actionability · Bias control · Coverage · Traceability · Readability.
+
+**Success metrics:** Fact-consistency score versus source docs · Omission rate for major decisions · Reading-grade level · User success on follow-up comprehension questions · % of claims with source references.
+
+---
+
+### Track 4 — Crisis Information and Resource Routing Assistant
+
+**What to build:** A community response assistant for floods, heatwaves, disease outbreaks, or regional emergencies. It can combine verified guidance, shelter/resource lists, school closures, transportation notices, and volunteer coordination info into a single conversational workflow.
+
+**Why this model fits:** planning + tool use + handling lots of changing context.
+
+**Why it helps the community:** people need clear, fast, localized guidance during chaotic events.
+
+**Rubric:** Timeliness · Risk sensitivity · Non-hallucination · Localization · Fallback behavior · Robustness under stress.
+
+**Success metrics:** Verified-resource precision · Time-to-answer · Crisis-action recommendation correctness · Outdated-information rate · User trust / usefulness score in simulated scenarios.
+
+---
+
+## Shared Judging Framework
+
+Regardless of track, every project is scored on these 6 dimensions:
+
+| # | Dimension | What it asks |
+|---|-----------|--------------|
+| 1 | **Community value** | Does it solve a real public problem? |
+| 2 | **Grounded accuracy** | Are outputs faithful to sources? |
+| 3 | **Actionability** | Can users do something useful immediately? |
+| 4 | **Safety** | Does it avoid harmful/confidently wrong advice? |
+| 5 | **Equity / accessibility** | Is it usable by non-experts and low-resource users? |
+| 6 | **Operational efficiency** | Latency, throughput, and cost per task. |
+
+In addition, judges weigh **innovation, timelines, and presentation** (lines of code, GitHub quality, YouTube demo video).
+
+---
 
 ## Judges
 
-- **Megh Makwana** — NVIDIA, AI Solutions
-- **Utkarsh Uppal** — NVIDIA, Solution Architect
-- **Savitha Pareek** — NVIDIA, Senior HPC & AI Architect
-- **Ajeet Singh Raina** — Docker, Founder of Collabnix
-- **Raveendiran RR** - Docker
+- **Megh Makwana**
+- **Utkarsh**
+- **Kavita Aroor**
+- **Ajeet Singh Raina**
+- **Raveendiran RR**
+- **Savitha Pareek**
+
+---
 
 ## Prizes
 
-🥇 **Grand Prize** — Cash + NVIDIA hardware + featured on NVIDIA Developer blog + speaker slot at next Collabnix meetup
+- 🥇 🥈 🥉 **Top 3 winners** — Amazon vouchers + NVIDIA swag
+- 🏅 **2 Runners-up** — NVIDIA swag
 
-🥈 **Runner-up** — Cash + NVIDIA swag + Collabnix feature
+---
 
-🏆 **Track Winners** — Recognition per track + swag + permanent feature in Awesome-Nemotron
+## Submission Conditions
 
-## Submission rules
+- ✅ Project must be within the scope of one of the 4 tracks above
+- ✅ Hosted on a public GitHub repository
+- ✅ Architecture diagram included in the README
+- ✅ YouTube demo video recorded — link included in submission
+- ✅ Blog post written about your project, shared on social platforms
+- ✅ Social posts must include `#NVIDIA` `#Nemotron` and call out the Bengaluru meetup
+- ✅ Submitted before **25 May 2026** via the [submission issue template](../../issues/new?template=submission.yml)
 
-- **Open source license required** (MIT, Apache 2.0, BSD, GPL — your choice)
-- **Public GitHub repo only** — no gists, no private repos
-- **Built during the contest period** — substantial work after Week 0. Recycled projects with cosmetic changes will not be accepted
-- **You retain ownership** — Collabnix and NVIDIA may feature your work (with credit) but IP stays with you
-- **One submission per team** — teams of 1–4 people
-- **Nemotron must be used meaningfully** — not as a token mention. Judges will look closely at this.
+---
 
-Read the full FAQ on the [contest portal](https://contest.collabnix.com#faq).
+## Contest Ownership
+
+**Docker Bangalore Organizers** — in partnership with Collabnix and NVIDIA.
 
 ## Get help
 
-- **Stuck on setup?** Slack #nemotron-contest channel — fastest replies
-- **Question about rules?** [Open a question issue](../../issues/new?template=question.yml)
-- **Office hours:** Every Friday 6 PM IST during the contest window — link in Slack
+- **Community:** [Collabnix Slack](https://collabnix.com)
+- **Question?** [Open a question issue](../../issues/new?template=question.yml)
 
 ---
 
-## For maintainers
-
-This repo is the submission backend for the contest portal. Submissions arrive as GitHub Issues (label: `submission`) and the portal at [contest.collabnix.com](https://contest.collabnix.com) fetches them via the GitHub API and renders them as a live wall.
-
-**Repository structure:**
-```
-.github/
-  ISSUE_TEMPLATE/
-    submission.yml    # Main contest submission form
-    question.yml      # Questions / help requests
-    config.yml        # Disables blank issues, adds Slack link
-  workflows/
-    process-submission.yml   # Auto-labels, validates, welcomes submitters
-README.md             # This file
-```
-
-**Labels used:**
-- `submission` — auto-applied to every entry
-- `track-1` through `track-5` — auto-applied based on selected track
-- `needs-review` — default state for unjudged submissions
-- `needs-fix` — auto-applied when repo URL is invalid; removed when fixed
-- `shortlisted` — applied by judges
-- `winner` — applied by judges after results
-
-**Manual judge actions:**
-- Comment with feedback on submissions
-- Apply `shortlisted` label after first review pass
-- Apply `winner` label and pin issue after results announced
-
----
-
-*Built with ☕ in Bengaluru by [Collabnix](https://collabnix.com).*
+*Built with ☕ in Bengaluru by [Collabnix](https://collabnix.com) and [Docker Bangalore](https://www.meetup.com/docker-bangalore/).*

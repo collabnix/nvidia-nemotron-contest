@@ -8,8 +8,8 @@ body:
     attributes:
       value: |
         Quick check before posting:
-        - Have you read the [FAQ](https://contest.collabnix.com/#faq)?
-        - Is your question better suited for the [Collabnix Slack](https://collabnix.com)? (Faster replies for code/setup help.)
+        - Have you read the README and the FAQ on the contest portal?
+        - Is your question better suited for the Collabnix Slack? (Faster replies for code/setup help.)
 
         If still relevant, ask away.
 

@@ -1,6 +1,6 @@
 # Code of Conduct
 
-The Nemotron 3 Super Build Contest is a community competition. We want it to be welcoming, collaborative, and fair.
+The NVIDIA Nemotron 3 Super Build Contest is a community competition. We want it to be welcoming, collaborative, and fair.
 
 ## Expected behavior
 
@@ -15,20 +15,16 @@ The Nemotron 3 Super Build Contest is a community competition. We want it to be 
 - Submitting plagiarized work
 - Sabotaging other participants' submissions or repos
 - Spam, off-topic content, or self-promotion unrelated to your submission
-- Manipulating reactions or stars to influence judging (judging is not based on reactions, but we'll notice)
+- Manipulating reactions or stars to influence judging
 
 ## Reporting
 
-If something feels wrong, reach out:
-- DM @ajeetsraina on the Collabnix Slack
-- Email: contest@collabnix.com
-
-Reports are handled confidentially.
+If something feels wrong, reach out to the Docker Bangalore organizers via the Collabnix Slack. Reports are handled confidentially.
 
 ## Enforcement
 
-Violations result in submission disqualification and removal from the contest. Repeated or severe violations result in removal from the Collabnix community.
+Violations result in submission disqualification. Repeated or severe violations result in removal from the Collabnix community.
 
 ---
 
-This contest is governed by Collabnix. This Code of Conduct is adapted from common open-source CoC templates.
+This contest is governed by Docker Bangalore organizers in partnership with Collabnix and NVIDIA.

@@ -18,28 +18,28 @@ jobs:
             const issue = context.payload.issue;
             const body = issue.body || '';
 
-            // Extract track from body
             const trackMatch = body.match(/### Submission Track\s*\n\s*(Track \d+[^\n]*)/);
             const track = trackMatch ? trackMatch[1].trim() : null;
 
-            // Extract repo URL
             const repoMatch = body.match(/### GitHub Repository URL\s*\n\s*(https?:\/\/[^\s]+)/);
             const repoUrl = repoMatch ? repoMatch[1].trim() : null;
 
-            // Build label list
+            const ytMatch = body.match(/### YouTube Demo Video URL\s*\n\s*(https?:\/\/[^\s]+)/);
+            const ytUrl = ytMatch ? ytMatch[1].trim() : null;
+
             const labels = [];
             if (track) {
               const trackNum = track.match(/Track (\d)/);
-              if (trackNum) labels.push(`track-${trackNum[1]}`);
+              if (trackNum && ['1','2','3','4'].includes(trackNum[1])) {
+                labels.push(`track-${trackNum[1]}`);
+              }
             }
 
-            // Validate repo URL is a GitHub URL
             const isValidRepo = repoUrl && /^https:\/\/github\.com\/[\w-]+\/[\w.-]+/.test(repoUrl);
-            if (!isValidRepo) {
-              labels.push('needs-fix');
-            }
+            const isValidYT = ytUrl && /youtu(be\.com|\.be)/.test(ytUrl);
 
-            // Add labels
+            if (!isValidRepo || !isValidYT) labels.push('needs-fix');
+
             if (labels.length) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
@@ -49,37 +49,37 @@ jobs:
               });
             }
 
-            // Only welcome on first open, not on edits
             if (context.payload.action !== 'opened') return;
 
-            // Welcome comment
-            const welcomeBody = isValidRepo
+            const issues = []
+            if (!isValidRepo) issues.push('GitHub repository URL appears missing or malformed');
+            if (!isValidYT) issues.push('YouTube demo video URL appears missing or malformed');
+
+            const welcomeBody = issues.length === 0
               ? `## 🎉 Submission received!
 
 Thanks for shipping, @${issue.user.login}. Your project is now part of the public submissions wall.
 
 **What happens next:**
-- Your submission appears live at [contest.collabnix.com](https://contest.collabnix.com#wall) within minutes
-- Judges review during the judging window after the deadline
-- Community can react with 👍 / 🚀 / ❤️ — these don't decide judging but tell us what's resonating
+- Your submission appears live on the contest portal within minutes
+- Judges review during the judging window after the deadline (25 May 2026)
+- Community can react with 👍 / 🚀 / ❤️
 
 **While you wait:**
-- Star ⭐ this repo to follow the contest
-- Drop into the Collabnix Slack #nemotron-contest channel
-- Check out other submissions on the wall — react to what you like
+- ⭐ Star this repo
+- Drop into the Collabnix Slack
+- Check out other submissions
 
-If you need to update something, just edit this issue. Edits are picked up automatically.
+If you need to update something, just edit this issue.
 
 _Submitted: ${new Date().toUTCString()}_`
               : `## ⚠️ Submission needs a fix
 
 Thanks for submitting, @${issue.user.login}. We've labeled this \`needs-fix\` because:
 
-- The GitHub repository URL appears to be missing or malformed.
+${issues.map(i => `- ${i}`).join('\n')}
 
-Please edit this issue to provide a valid public GitHub repo URL (format: \`https://github.com/owner/repo\`). Once fixed, the \`needs-fix\` label will be removed and your submission will go live on the wall.
-
-If you think this is in error, comment below and we'll take a look.`;
+Please edit this issue to provide valid links. Once fixed, the \`needs-fix\` label will be removed automatically.`;
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -95,10 +95,13 @@ If you think this is in error, comment below and we'll take a look.`;
           script: |
             const body = context.payload.issue.body || '';
             const repoMatch = body.match(/### GitHub Repository URL\s*\n\s*(https?:\/\/[^\s]+)/);
+            const ytMatch = body.match(/### YouTube Demo Video URL\s*\n\s*(https?:\/\/[^\s]+)/);
             const repoUrl = repoMatch ? repoMatch[1].trim() : null;
+            const ytUrl = ytMatch ? ytMatch[1].trim() : null;
             const isValidRepo = repoUrl && /^https:\/\/github\.com\/[\w-]+\/[\w.-]+/.test(repoUrl);
+            const isValidYT = ytUrl && /youtu(be\.com|\.be)/.test(ytUrl);
 
-            if (isValidRepo) {
+            if (isValidRepo && isValidYT) {
               try {
                 await github.rest.issues.removeLabel({
                   owner: context.repo.owner,
@@ -106,7 +109,5 @@ If you think this is in error, comment below and we'll take a look.`;
                   issue_number: context.payload.issue.number,
                   name: 'needs-fix'
                 });
-              } catch (e) {
-                // label wasn't there, that's fine
-              }
+              } catch (e) {}
             }
